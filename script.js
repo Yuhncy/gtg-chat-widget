@@ -22,8 +22,8 @@ document.getElementById("chat-form").addEventListener("submit", async function (
     });
 
     const data = await response.json();
-    const reply = data.reply || "🤖 Sorry, I didn't understand that.";
-    addMessage("bot", reply);
+    const output = data.output || data.reply || "🤖 Sorry, I didn't understand that.";
+    addMessage("bot", output);
   } catch (error) {
     console.error(error);
     addMessage("bot", "⚠️ Error contacting server.");
