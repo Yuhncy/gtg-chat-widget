@@ -1,11 +1,10 @@
-
 document.getElementById("chat-toggle").addEventListener("click", function () {
   const chatContainer = document.getElementById("chat-frame-container");
   chatContainer.style.display = (chatContainer.style.display === "block") ? "none" : "block";
 });
 
 document.getElementById("chat-form").addEventListener("submit", async function (e) {
-  e.preventDefault();
+  e.preventDefault(); // ✅ prevents reload
   const input = document.getElementById("user-input");
   const message = input.value.trim();
   if (!message) return;
