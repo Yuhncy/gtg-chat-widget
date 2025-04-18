@@ -1,15 +1,22 @@
+
+let sessionId = localStorage.getItem("chat_session_id");
+if (!sessionId) {
+  sessionId = "session_" + Math.random().toString(36).substring(2, 15);
+  localStorage.setItem("chat_session_id", sessionId);
+}
+
 document.getElementById("chat-toggle").addEventListener("click", function () {
   const chatContainer = document.getElementById("chat-frame-container");
   chatContainer.style.display = (chatContainer.style.display === "block") ? "none" : "block";
 });
 
 document.getElementById("chat-form").addEventListener("submit", async function (e) {
-  e.preventDefault(); // ✅ prevents reload
+  e.preventDefault();
   const input = document.getElementById("user-input");
-  const message = input.value.trim();
-  if (!message) return;
+  const chatInput = input.value.trim();
+  if (!chatInput) return;
 
-  addMessage("user", message);
+  addMessage("user", chatInput);
   input.value = "";
 
   try {
@@ -18,7 +25,7 @@ document.getElementById("chat-form").addEventListener("submit", async function (
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ message })
+      body: JSON.stringify({ chatInput, session_id: sessionId })
     });
 
     const data = await response.json();
