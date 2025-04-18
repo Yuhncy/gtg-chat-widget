@@ -33,10 +33,52 @@ body {
   position: absolute;
   bottom: 80px;
   right: 0;
+  background: #fff;
 }
 
-#chat-frame-container iframe {
-  width: 100%;
+#chat-box {
+  display: flex;
+  flex-direction: column;
   height: 100%;
+}
+
+#messages {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+#messages div {
+  margin-bottom: 10px;
+}
+
+#messages .user {
+  text-align: right;
+  color: #1db954;
+}
+
+#messages .bot {
+  text-align: left;
+  color: #333;
+}
+
+#chat-form {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+#chat-form input {
+  flex-grow: 1;
   border: none;
+  padding: 10px;
+  font-size: 14px;
+}
+
+#chat-form button {
+  background-color: #1db954;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
 }

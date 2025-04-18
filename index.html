@@ -11,7 +11,13 @@
   <div id="chat-widget">
     <button id="chat-toggle">&#128172;</button>
     <div id="chat-frame-container">
-      <iframe src="https://yancysimplyai.app.n8n.cloud/webhook/27f9f66b-728f-47fa-875a-7dfb9ed46156/chat" frameborder="0"></iframe>
+      <div id="chat-box">
+        <div id="messages"></div>
+        <form id="chat-form">
+          <input type="text" id="user-input" placeholder="Type your message..." required />
+          <button type="submit">Send</button>
+        </form>
+      </div>
     </div>
   </div>
   <script src="script.js"></script>
